@@ -1,18 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edica :: Home</title>
-    <link rel="stylesheet" href="/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="/assets/vendors/font-awesome/css/all.min.css">
-    <link href="/assets/vendors/aos/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <script src="/assets/vendors/jquery/jquery.min.js"></script>
-    <script src="/assets/js/loader.js"></script>
-</head>
-<body>
+@extends('layouts.head')
+@section('content')
     <div class="edica-loader"></div>
     <header class="edica-header edica-landing-header">
         <div class="container">
@@ -24,27 +11,27 @@
                 <div class="collapse navbar-collapse" id="edicaMainNav">
                     <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About</a>
+                            <a class="nav-link" href="/about">About</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="blogDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Blog</a>
                             <div class="dropdown-menu" aria-labelledby="blogDropdown">
-                                <a class="dropdown-item" href="blog.html">Blog Archive</a>
-                                <a class="dropdown-item" href="blog-single.html">Blog Post</a>
+                                <a class="dropdown-item" href="/blog">Blog Archive</a>
+                                <a class="dropdown-item" href="/blog_single">Blog Post</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
                             <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                                <a class="dropdown-item" href="404.html">404</a>
-                                <a class="dropdown-item" href="coming-soon.html">Coming Soon</a>
+                                <a class="dropdown-item" href="/error_404">404</a>
+                                <a class="dropdown-item" href="/coming_soon">Coming Soon</a>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="/contact">Contact</a>
                         </li>
                     </ul>
                     <ul class="navbar-nav mt-2 mt-lg-0">
@@ -155,22 +142,22 @@
                 <h2 class="edica-landing-section-title">What features you will <br> Get from App.</h2>
                 <div class="row">
                     <div class="col-md-6 landing-service-card" data-aos="fade-right">
-                        <img src="../../edica/assets/images/picture.svg" alt="card img" class="img-fluid service-card-img">
+                        <img src="/assets/images/picture.svg" alt="card img" class="img-fluid service-card-img">
                         <h4 class="service-card-title">Live Video</h4>
                         <p class="service-card-description">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the.</p>
                     </div>
                     <div class="col-md-6 landing-service-card" data-aos="fade-left">
-                        <img src="../../edica/assets/images/internet.svg" alt="card img" class="img-fluid service-card-img">
+                        <img src="/assets/images/internet.svg" alt="card img" class="img-fluid service-card-img">
                         <h4 class="service-card-title">Secure and Reliable</h4>
                         <p class="service-card-description">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the.</p>
                     </div>
                     <div class="col-md-6 landing-service-card" data-aos="fade-right">
-                        <img src="../../edica/assets/images/goal.svg" alt="card img" class="img-fluid service-card-img">
+                        <img src="/assets/images/goal.svg" alt="card img" class="img-fluid service-card-img">
                         <h4 class="service-card-title">Fast. Instantly.</h4>
                         <p class="service-card-description">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the.</p>
                     </div>
                     <div class="col-md-6 landing-service-card" data-aos="fade-left">
-                        <img src="../../edica/assets/images/chat-bubble.svg" alt="card img" class="img-fluid service-card-img">
+                        <img src="/assets/images/chat-bubble.svg" alt="card img" class="img-fluid service-card-img">
                         <h4 class="service-card-title">Built-in Messenger</h4>
                         <p class="service-card-description">He has led a remarkable campaign, defying the traditional mainstream parties courtesy of his En Marche! movement. For many, however, the.</p>
                     </div>
@@ -181,7 +168,7 @@
             <div class="container">
                 <div id="edicaLandingTestimonialCarousel" class="carousel slide landing-testimonial-carousel" data-ride="carousel">
                     <div class="text-center py-4">
-                        <img src="../../edica/assets/images/quote.svg" alt="quote">
+                        <img src="/assets/images/quote.svg" alt="quote">
                     </div>
                     <div class="carousel-inner" role="listbox">
                         <div class="carousel-item">
@@ -212,21 +199,21 @@
                     </div>
                     <ol class="carousel-indicators">
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="0">
-                            <img src="../../edica/assets/images/oval-copy-3.png" alt="avatar">
+                            <img src="/assets/images/oval-copy-3.png" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
                             </div>
                         </li>
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="1">
-                            <img src="../../edica/assets/images/oval-copy-4.png" alt="avatar">
+                            <img src="/assets/images/oval-copy-4.png" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
                             </div>
                         </li>
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="2" class="active">
-                            <img src="../../edica/assets/images/oval.png" alt="avatar">
+                            <img src="/assets/images/oval.png" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
@@ -234,14 +221,14 @@
 
                         </li>
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="3">
-                            <img src="../../edica/assets/images/oval-copy.png" alt="avatar">
+                            <img src="/assets/images/oval-copy.png" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
                             </div>
                         </li>
                         <li data-target="#edicaLandingTestimonialCarousel" data-slide-to="4">
-                            <img src="../../edica/assets/images/oval-copy-2.png" alt="avatar">
+                            <img src="/assets/images/oval-copy-2.png" alt="avatar">
                             <div class="user-details">
                                 <h6>Gabie Sheber</h6>
                                 <p>Developer</p>
@@ -257,19 +244,19 @@
                 <h2 class="edica-landing-section-title" data-aos="fade-up">Check our app latest blog post <br> for more update.</h2>
                 <div class="row">
                     <div class="col-md-4 landing-blog-post" data-aos="fade-right">
-                        <img src="../../edica/assets/images/rectangle.png" alt="blog post" class="blog-post-thumbnail">
+                        <img src="/assets/images/rectangle.png" alt="blog post" class="blog-post-thumbnail">
                         <p class="blog-post-category">Blog post</p>
                         <h4 class="blog-post-title">Check our latest blog post for more update.</h4>
                         <a href="#!" class="blog-post-link">Learn more</a>
                     </div>
                     <div class="col-md-4 landing-blog-post" data-aos="fade-up">
-                        <img src="../../edica/assets/images/rectangle-copy.png" alt="blog post" class="blog-post-thumbnail">
+                        <img src="/assets/images/rectangle-copy.png" alt="blog post" class="blog-post-thumbnail">
                         <p class="blog-post-category">Blog post</p>
                         <h4 class="blog-post-title">Check our latest blog post for more update.</h4>
                         <a href="#!" class="blog-post-link">Learn more</a>
                     </div>
                     <div class="col-md-4 landing-blog-post" data-aos="fade-left">
-                        <img src="../../edica/assets/images/rectangle-copy-2.png" alt="blog post" class="blog-post-thumbnail">
+                        <img src="/assets/images/rectangle-copy-2.png" alt="blog post" class="blog-post-thumbnail">
                         <p class="blog-post-category">Blog post</p>
                         <h4 class="blog-post-title">Check our latest blog post for more update.</h4>
                         <a href="#!" class="blog-post-link">Learn more</a>
@@ -303,8 +290,8 @@
             <div class="footer-banner" data-aos="fade-up">
                 <h1 class="banner-title">Download it now.</h1>
                 <div class="banner-btns-wrapper">
-                    <button class="btn btn-success"> <img src="../../edica/assets/images/apple@1x.svg" alt="ios" class="mr-2"> App Store</button>
-                    <button class="btn btn-success"> <img src="../../edica/assets/images/android@1x.svg" alt="android" class="mr-2"> Google Play</button>
+                    <button class="btn btn-success"> <img src="/assets/images/apple@1x.svg" alt="ios" class="mr-2"> App Store</button>
+                    <button class="btn btn-success"> <img src="/assets/images/android@1x.svg" alt="android" class="mr-2"> Google Play</button>
                 </div>
                 <p class="banner-text">Add some helper text here to explain the finer details of your <br> product or service.</p>
             </div>
@@ -314,8 +301,7 @@
         <div class="container">
             <div class="row footer-widget-area">
                 <div class="col-md-3">
-                    <a href="index.html" class="footer-brand-wrapper">
-                        <img src="../../edica/assets/images/logo.svg" alt="edica logo">
+                    <a href="index.html" class="footer-brand-wrapper">/assets/images/logo.svg" alt="edica logo">
                     </a>
                     <p class="contact-details">hello@edica.com</p>
                     <p class="contact-details">+23 3000 000 00</p>
@@ -373,6 +359,7 @@
             </div>
         </div>
     </footer>
+
     <script src="/assets/vendors/popper.js/popper.min.js"></script>
     <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/assets/vendors/aos/aos.js"></script>
@@ -382,5 +369,4 @@
             duration: 2000
         });
       </script>
-</body>
-</html>
+@endsection

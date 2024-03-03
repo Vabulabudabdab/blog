@@ -14,4 +14,31 @@ class Controller extends BaseController
         return view('index');
     }
 
+    public function home() {
+        return view('home');
+    }
+
+    public function contact() {
+        return view('contact');
+    }
+
+    public function coming_soon() {
+        return view('coming-soon');
+    }
+
+    public function blog() {
+        return view('blog');
+    }
+
+    public function about() {
+        return view('about');
+    }
+
+    public function blog_single() {
+        return view('blog-single');
+    }
+
+    public function error_404() {
+        return view('404');
+    }
 }

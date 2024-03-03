@@ -1,23 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edica :: Home</title>
-    <link rel="stylesheet" href="../../edica/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../../edica/assets/vendors/font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="../../edica/assets/vendors/aos/aos.css">
-    <link rel="stylesheet" href="../../edica/assets/css/style.css">
-    <script src="../../edica/assets/vendors/jquery/jquery.min.js"></script>
-    <script src="../../edica/assets/js/loader.js"></script>
-</head>
+@extends('layouts.head')
+@section('content')
 <body>
     <div class="edica-loader"></div>
     <header class="edica-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html"><img src="../../edica/assets/images/logo.svg" alt="Edica"></a>
+                <a class="navbar-brand" href="index.html"><img src="/assets/images/logo.svg" alt="Edica"></a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -80,8 +68,8 @@
             <div class="footer-banner" data-aos="fade-up">
                 <h1 class="banner-title">Download it now.</h1>
                 <div class="banner-btns-wrapper">
-                    <button class="btn btn-success"> <img src="../../edica/assets/images/apple@1x.svg" alt="ios" class="mr-2"> App Store</button>
-                    <button class="btn btn-success"> <img src="../../edica/assets/images/android@1x.svg" alt="android" class="mr-2"> Google Play</button>
+                    <button class="btn btn-success"> <img src="/assets/images/apple@1x.svg" alt="ios" class="mr-2"> App Store</button>
+                    <button class="btn btn-success"> <img src="/assets/images/android@1x.svg" alt="android" class="mr-2"> Google Play</button>
                 </div>
                 <p class="banner-text">Add some helper text here to explain the finer details of your <br> product or service.</p>
             </div>
@@ -92,7 +80,7 @@
             <div class="row footer-widget-area">
                 <div class="col-md-3">
                     <a href="index.html" class="footer-brand-wrapper">
-                        <img src="../../edica/assets/images/logo.svg" alt="edica logo">
+                        <img src="/assets/images/logo.svg" alt="edica logo">
                     </a>
                     <p class="contact-details">hello@edica.com</p>
                     <p class="contact-details">+23 3000 000 00</p>
@@ -149,15 +137,13 @@
             </div>
         </div>
     </footer>
-    <script src="../../edica/assets/vendors/popper.js/popper.min.js"></script>
-    <script src="../../edica/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../edica/assets/vendors/aos/aos.js"></script>
-    <script src="../../edica/assets/js/main.js"></script>
+    <script src="/assets/vendors/popper.js/popper.min.js"></script>
+    <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/assets/vendors/aos/aos.js"></script>
+    <script src="/assets/js/main.js"></script>
     <script>
         AOS.init({
             duration: 2000
         });
       </script>
-</body>
-
-</html>
+@endsection

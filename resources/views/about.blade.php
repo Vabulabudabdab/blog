@@ -1,23 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Edica :: Home</title>
-    <link rel="stylesheet" href="../../edica/assets/vendors/flag-icon-css/css/flag-icon.min.css">
-    <link rel="stylesheet" href="../../edica/assets/vendors/font-awesome/css/all.min.css">
-    <link rel="stylesheet" href="../../edica/assets/vendors/aos/aos.css">
-    <link rel="stylesheet" href="../../edica/assets/css/style.css">
-    <script src="../../edica/assets/vendors/jquery/jquery.min.js"></script>
-    <script src="../../edica/assets/js/loader.js"></script>
-</head>
-<body>
+@extends('layouts.head')
+@section('content')
     <div class="edica-loader"></div>
     <header class="edica-header">
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-light">
-                <a class="navbar-brand" href="index.html"><img src="../../edica/assets/images/logo.svg" alt="Edica"></a>
+                <a class="navbar-brand" href="index.html"><img src="{{asset('/assets/images/logo.svg')}}" alt="Edica"></a>
                 <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#edicaMainNav" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -78,7 +65,7 @@
                     <section class="edica-about-vision py-5">
                         <div class="row">
                             <div class="col-md-6 pb-3 pb-md-0 mb-4 mb-md-0" data-aos="fade-right" data-aos-delay="200">
-                                <img src="../../edica/assets/images/about-vision.png" alt="vision" class="img-fluid">
+                                <img src="{{asset('/assets/images/about-vision.png')}}" alt="vision" class="img-fluid">
                             </div>
                             <div class="col-md-6 d-flex flex-column justify-content-center">
                                 <h2 class="vision-title" data-aos="fade-left">Our Vision</h2>
@@ -115,30 +102,30 @@
                                 <p class="goal-text">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs. The passage is at attributed to an unknown typesetters in 1the 5th century who is thought scrambled with all parts of Cicero’s De. Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out printed graphic or web designs</p>
                             </div>
                             <div class="col-md-6" data-aos="fade-left">
-                                <img src="../../edica/assets/images/about-goal.png" alt="goal" class="img-fluid">
+                                <img src="{{asset('/assets/images/about-goal.png')}}" alt="goal" class="img-fluid">
                             </div>
                         </div>
                     </section>
                     <section class="edica-about-clients pb-5 mb-5">
                         <h2 class="clients-title mb-5" data-aos="fade-up">Top clients</h2>
-                        <div class="row py-4" data-aos="fade-up">
-                            <div class="col-6 col-md-2 mb-4 mb-md-0">
-                                <img src="../../edica/assets/images/Partner_1@2x.png" alt="client logo" class="img-fluid" width="140px">
+                        <div class="row py-4" data-aos="fade-
+                            <up">div class="col-6 col-md-2 mb-4 mb-md-0">
+                                <img src="{{asset('/assets/images/Partner_1@2x.png')}}" alt="client logo" class="img-fluid" width="140px">
                             </div>
                             <div class="col-6 col-md-2 mb-4 mb-md-0">
-                                <img src="../../edica/assets/images/Partner_2@2x.png" alt="client logo" width="140px" class="img-fluid">
+                                <img src="{{asset('/assets/images/Partner_2@2x.png')}}" alt="client logo" width="140px" class="img-fluid">
                             </div>
                             <div class="col-6 col-md-2 mb-4 mb-md-0">
-                                <img src="../../edica/assets/images/Partner_3@2x.png" alt="client logo" width="140px" class="img-fluid">
+                                <img src="{{asset('/assets/images/Partner_3@2x.png')}}" alt="client logo" width="140px" class="img-fluid">
                             </div>
                             <div class="col-6 col-md-2 mb-4 mb-md-0">
-                                <img src="../../edica/assets/images/Partner_4@2x.png" alt="client logo" width="140px" class="img-fluid">
+                                <img src="{{asset('/assets/images/Partner_4@2x.png')}}" alt="client logo" width="140px" class="img-fluid">
                             </div>
                             <div class="col-6 col-md-2 mb-4 mb-md-0">
-                                <img src="../../edica/assets/images/Partner_5@2x.png" alt="client logo" width="140px" class="img-fluid">
+                                <img src="{{asset('/assets/images/Partner_5@2x.png')}}" alt="client logo" width="140px" class="img-fluid">
                             </div>
                             <div class="col-6 col-md-2 mb-4 mb-md-0">
-                                <img src="../../edica/assets/images/Partner_6@2x.png" alt="client logo" width="140px" class="img-fluid">
+                                <img src="{{asset('/assets/images/Partner_6@2x.png')}}" alt="client logo" width="140px" class="img-fluid">
                             </div>
                         </div>
                     </section>
@@ -214,8 +201,8 @@
             <div class="footer-banner">
                 <h1 class="banner-title">Download it now.</h1>
                 <div class="banner-btns-wrapper">
-                    <button class="btn btn-success"> <img src="../../edica/assets/images/apple@1x.svg" alt="ios" class="mr-2"> App Store</button>
-                    <button class="btn btn-success"> <img src="../../edica/assets/images/android@1x.svg" alt="android" class="mr-2"> Google Play</button>
+                    <button class="btn btn-success"> <img src="{{asset('/assets/images/apple@1x.svg')}}" alt="ios" class="mr-2"> App Store</button>
+                    <button class="btn btn-success"> <img src="{{asset('/assets/images/android@1x.svg')}}" alt="android" class="mr-2"> Google Play</button>
                 </div>
                 <p class="banner-text">Add some helper text here to explain the finer details of your <br> product or service.</p>
             </div>
@@ -226,7 +213,7 @@
             <div class="row footer-widget-area">
                 <div class="col-md-3">
                     <a href="index.html" class="footer-brand-wrapper">
-                        <img src="../../edica/assets/images/logo.svg" alt="edica logo">
+                        <img src="{{asset('/assets/images/logo.svg')}}" alt="edica logo">
                     </a>
                     <p class="contact-details">hello@edica.com</p>
                     <p class="contact-details">+23 3000 000 00</p>
@@ -245,8 +232,7 @@
                         <a href="#!" class="nav-link">Blog</a>
                         <a href="#!" class="nav-link">Partners</a>
                         <a href="#!" class="nav-link">Careers</a>
-                    </nav>
-                </div>
+                    </
                 <div class="col-md-3">
                     <nav class="footer-nav">
                         <a href="#!" class="nav-link">FAQ</a>
@@ -283,16 +269,14 @@
             </div>
         </div>
     </footer>
-    <script src="../../edica/assets/vendors/popper.js/popper.min.js"></script>
-    <script src="../../edica/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../edica/assets/vendors/aos/aos.js"></script>
-    <script src="../../edica/assets/js/counter.js"></script>
-    <script src="../../edica/assets/js/main.js"></script>
+    <script src="{{asset('/assets/vendors/popper.js/popper.min.js')}}"></script>
+    <script src="{{asset('/assets/vendors/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('/assets/vendors/aos/aos.js')}}"></script>
+    <script src="{{asset('/assets/js/counter.js')}}"></script>
+    <script src="{{asset('/assets/js/main.js')}}"></script>
     <script>
         AOS.init({
             duration: 2000
         });
       </script>
-</body>
-
-</html>
+@endsection
