@@ -6,7 +6,7 @@ class CreateController {
 
 
     public function create() {
-        return view('admin.categories.create');
+        return view('admin.category.create');
     }
 
 }

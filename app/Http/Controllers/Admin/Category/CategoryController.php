@@ -9,6 +9,6 @@ class CategoryController {
     public function categories() {
         $categories = Category::all();
 
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.category.index', compact('categories'));
     }
 }

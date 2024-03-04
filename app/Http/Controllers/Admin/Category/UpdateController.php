@@ -13,7 +13,7 @@ class UpdateController {
         $data = $updateRequest->validated();
         $category->update($data);
 
-//        $exist = DB::table('categories')->select('title')->where('id', $category)->exists();
+//        $exist = DB::table('category')->select('title')->where('id', $category)->exists();
 
         return redirect()->route('admin.category.show', compact('category'));
     }

@@ -8,7 +8,7 @@ class ShowController {
 
 
     public function show(Category $category) {
-        return view('admin.categories.show', compact('category'));
+        return view('admin.category.show', compact('category'));
     }
 
 }

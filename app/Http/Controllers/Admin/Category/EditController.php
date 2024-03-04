@@ -7,6 +7,6 @@ use App\Models\Category;
 class EditController {
 
     public function edit(Category $category) {
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.category.edit', compact('category'));
     }
 }
