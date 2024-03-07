@@ -7,7 +7,7 @@ use App\Models\Tag;
 
 class IndexController extends Controller {
 
-    public function categories() {
+    public function tags() {
         $tags = Tag::all();
 
         return view('admin.tag.index', compact('tags'));

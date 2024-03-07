@@ -26,7 +26,26 @@ class StoreRequest extends FormRequest
             'content'=> 'required|string',
             'preview_image'=> 'required|file',
             'main_image'=> 'required|file',
-            'category_id'=> 'required|exists:categories,id'
+            'category_id'=> 'required|integer|exists:categories,id',
+            'tag_ids'=> 'nullable|array',
+            'tag_ids.*'=> 'nullable|integer|exists:tags,id'
+        ];
+    }
+    public function messages()
+    {
+        return [
+          'title.required' => "Это поле необходимо для заполнения!",
+          'title.string' => "Это поле необходимо для заполнения!",
+          'content.required' => "Данные должны соответствовать строчному типу!",
+          'content.string' => "Данные должны соответствовать строчному типу!",
+          'preview_image.required'=> "Это поле необходимо для заполнения!",
+          'preview_image.file'=> "Необходимо выбрать файл!",
+          'main_image.required'=> "Это поле необходимо для заполнения!",
+          'main_image.file'=> "Необходимо выбрать файл!",
+          'category_id.required'=> "Это поле необходимо для заполнения",
+          'category_id.integer'=> "ID Категории должен быть типом числом",
+          'category_id.exists'=> "ID категории должен существовать в Базе Данных",
+          'tag_ids.array'=> "Ожидается массив данных",
         ];
     }
 }

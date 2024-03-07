@@ -33,7 +33,7 @@
                             <label>Название</label>
                             <input type="text" class="form-control" placeholder="Название тэга" name="title" value="{{$tag->title}}">
                             @error('title')
-                                <div class="text-danger">Это поле не может быть пустым</div>
+                                <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
                             <button type="submit" class="btn btn-primary">Редактировать</button>

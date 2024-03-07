@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin\Post;
 
 use App\Models\Post;
 
-class IndexController {
+class IndexController extends BaseController {
 
-    public function categories() {
+    public function posts() {
         $posts = Post::all();
 
         return view('admin.post.index', compact('posts'));

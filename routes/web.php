@@ -34,7 +34,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('/', [App\Http\Controllers\Admin\Main\IndexController::class, 'admin_panel']);
 
     Route::group(['prefix' => 'posts'], function() {
-        Route::get('/', [App\Http\Controllers\Admin\Post\IndexController::class, 'categories'])->name('admin.post.index');
+        Route::get('/', [App\Http\Controllers\Admin\Post\IndexController::class, 'posts'])->name('admin.post.index');
         Route::get('/create', [App\Http\Controllers\Admin\Post\CreateController::class, 'create'])->name('admin.post.create');
         Route::post('/', [App\Http\Controllers\Admin\Post\StoreController::class, 'store'])->name('admin.post.store');
         Route::get('/{post}', [App\Http\Controllers\Admin\Post\ShowController::class, 'show'])->name('admin.post.show');
@@ -57,13 +57,24 @@ Route::group(['prefix' => 'admin'], function() {
     });
 
     Route::group(['prefix' => 'Tag'], function() {
-        Route::get('/', [App\Http\Controllers\Admin\Tag\IndexController::class, 'categories'])->name('admin.tag.index');
+        Route::get('/', [App\Http\Controllers\Admin\Tag\IndexController::class, 'tags'])->name('admin.tag.index');
         Route::get('/create', [App\Http\Controllers\Admin\Tag\CreateController::class, 'create'])->name('admin.tag.create');
         Route::post('/', [App\Http\Controllers\Admin\Tag\StoreController::class, 'store'])->name('admin.tag.store');
         Route::get('/{tag}', [App\Http\Controllers\Admin\Tag\ShowController::class, 'show'])->name('admin.tag.show');
         Route::get('/{tag}/edit', [App\Http\Controllers\Admin\Tag\EditController::class, 'edit'])->name('admin.tag.edit');
         Route::post('/{tag}', [App\Http\Controllers\Admin\Tag\UpdateController::class, 'update'])->name('admin.tag.update');
         Route::delete('/{tag}', [App\Http\Controllers\Admin\Tag\DeleteController::class, 'delete'])->name('admin.tag.delete');
+
+    });
+
+    Route::group(['prefix' => 'users'], function() {
+        Route::get('/', [App\Http\Controllers\Admin\User\IndexController::class, 'users'])->name('admin.user.index');
+        Route::get('/create', [App\Http\Controllers\Admin\User\CreateController::class, 'create'])->name('admin.user.create');
+        Route::post('/', [App\Http\Controllers\Admin\User\StoreController::class, 'store'])->name('admin.user.store');
+        Route::get('/{user}', [App\Http\Controllers\Admin\User\ShowController::class, 'show'])->name('admin.user.show');
+        Route::get('/{user}/edit', [App\Http\Controllers\Admin\User\EditController::class, 'edit'])->name('admin.user.edit');
+        Route::post('/{user}', [App\Http\Controllers\Admin\User\UpdateController::class, 'update'])->name('admin.user.update');
+        Route::delete('/{user}', [App\Http\Controllers\Admin\User\DeleteController::class, 'delete'])->name('admin.user.delete');
 
     });
 });

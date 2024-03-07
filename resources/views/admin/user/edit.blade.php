@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Добавление тэга</h1>
+                        <h1 class="m-0">Пользователи</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -26,17 +26,17 @@
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-md-12">
-                        <h5>Добавление категории</h5>
+                        <h5>Редактирование пользователя</h5>
                         <div class="form-group">
-                        <form action="{{route('admin.tag.store')}}" method="post" class="w-25">
+                        <form action="{{route('admin.user.update', $user->id)}}" method="post" class="w-25">
                             {{csrf_field()}}
-                            <label>Название</label>
-                            <input type="text" class="form-control" placeholder="Название тэга" name="title">
+                            <label>Имя пользователя</label>
+                            <input type="text" class="form-control" placeholder="Имя пользователя" name="title" value="{{$user->id}}">
                             @error('title')
                                 <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
-                            <button type="submit" class="btn btn-primary">Добавить тэг</button>
+                            <button type="submit" class="btn btn-primary">Редактировать</button>
                         </form>
                     </div>
                 </div>
