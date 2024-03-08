@@ -42,7 +42,7 @@
                                     <thead>
                                     <tr>
                                         <th>Id</th>
-                                        <th>Ммя пользователя</th>
+                                        <th>Имя пользователя</th>
                                     </tr>
                                     </thead>
                                     <tbody>
