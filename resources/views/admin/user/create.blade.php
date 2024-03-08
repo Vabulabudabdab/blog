@@ -27,15 +27,31 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h5>Добавление пользователя</h5>
-                        <div class="form-group">
                         <form action="{{route('admin.user.store')}}" method="post" class="w-25">
                             {{csrf_field()}}
-                            <label>Название</label>
-                            <input type="text" class="form-control" placeholder="Имя пользователя" name="title">
+                            <div class="form-group">
+                            <label>Имя пользователя</label>
+                            <input type="text" class="form-control" placeholder="Имя пользователя" name="name">
                             @error('title')
                                 <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
+
+                            <div class="form-group">
+                                <label>Эл.Почта</label>
+                                <input type="email" class="form-control" placeholder="Email" name="email">
+                                @error('email')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Пароль</label>
+                                <input type="password" class="form-control" placeholder="Password" name="password">
+                                @error('password')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
                             <button type="submit" class="btn btn-primary">Добавить пользователя</button>
                         </form>
                     </div>

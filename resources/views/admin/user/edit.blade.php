@@ -27,15 +27,25 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h5>Редактирование пользователя</h5>
-                        <div class="form-group">
                         <form action="{{route('admin.user.update', $user->id)}}" method="post" class="w-25">
                             {{csrf_field()}}
-                            <label>Имя пользователя</label>
-                            <input type="text" class="form-control" placeholder="Имя пользователя" name="title" value="{{$user->id}}">
-                            @error('title')
+                            <div class="form-group">
+                                <label>Имя пользователя</label>
+                                <input type="text" class="form-control" placeholder="Имя пользователя" name="name" value="{{$user->name}}">
+                                @error('name')
                                 <div class="text-danger">{{$message}}</div>
-                            @enderror
-                        </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <label>Эл.Почта</label>
+                                <input type="email" class="form-control" placeholder="Email" name="email" value="{{$user->email}}">
+                                @error('email')
+                                <div class="text-danger">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div>
                             <button type="submit" class="btn btn-primary">Редактировать</button>
                         </form>
                     </div>

@@ -7,7 +7,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6 d-flex align-items-center">
-                        <h1 class="m-0 mr-2">{{$user->id}}</h1>
+                        <h1 class="m-0 mr-2">{{$user->name}}</h1>
                         <a href="{{route('admin.user.edit', $user->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a>
                         <form action="{{route('admin.user.delete', $user->id)}}" method="post">
                             {{csrf_field()}}
@@ -46,11 +46,15 @@
                                         <td>ID</td>
                                         <td>{{$user->id}}</td>
                                     </tr>
-                                        <tr>
-                                            <td>Название</td>
-                                            <td>{{$user->id}}</td>
-                                        </tr>
+                                    <tr>
+                                        <td>Имя пользователя</td>
+                                        <td>{{$user->name}}</td>
+                                    </tr>
 
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>{{$user->email}}</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

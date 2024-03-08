@@ -49,9 +49,9 @@
                                     @foreach($users as $user)
                                     <tr>
                                         <td>{{$user->id}}</td>
-                                        <td>{{$user->title}}</td>
-                                        <td class="text-center"><a href="{{route('admin.category.show', $user->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td class="text-center"><a href="{{route('admin.category.edit', $user->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
+                                        <td>{{$user->name}}</td>
+                                        <td class="text-center"><a href="{{route('admin.user.show', $user->id)}}"><i class="far fa-eye"></i></a></td>
+                                        <td class="text-center"><a href="{{route('admin.user.edit', $user->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                         <td class="text-center">
                                             <form action="{{route('admin.user.delete', $user->id)}}" method="post">
                                                 {{csrf_field()}}
