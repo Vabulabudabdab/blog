@@ -10,8 +10,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable {
-    use HasFactory;
-    use SoftDeletes;
+    use HasFactory, SoftDeletes;
+
+    const ROLE_ADMIN = 0;
+    const ROLE_READER  = 1;
 
     protected $table = 'users';
 
