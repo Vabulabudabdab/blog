@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('email_verified_at')->nullable();
             $table->string('password');
             $table->string('remember_token')->nullable();
-            $table->unsignedBigInteger('role_id')->nullable();
+            $table->unsignedBigInteger('role_id')->nullable();//Странно, только только при ubi не выдаёт ошибку, надо потестить
             $table->timestamps();
 
             $table->index('role_id', 'user_role_idx');
-            $table->foreign('role_id', 'user_role_fk')->on('roles')->references('id');
+            $table->foreign('role_id', 'user_role_fk')->on('roles')->references('id');;
         });
     }
 

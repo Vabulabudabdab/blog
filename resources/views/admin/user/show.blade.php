@@ -55,6 +55,11 @@
                                         <td>Email</td>
                                         <td>{{$user->email}}</td>
                                     </tr>
+
+                                    <tr>
+                                        <td>Права доступа</td>
+                                        <td>{{$user->role_id}}</td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

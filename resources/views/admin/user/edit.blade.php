@@ -46,6 +46,20 @@
                                 </div>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <label>Права пользователя</label>
+                                <select class="select2" name="roles"  data-placeholder="Выберите роли" style="width: 100%;">
+                                    @foreach($roles as $role)
+                                        <option value="{{$role->id}}">{{$role->role_name}}</option>
+                                    @endforeach
+                                </select>
+                                @error('roles')
+                                <div class="text-danger">{{$message}}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" value="{{$user->id}}">
+                            </div>
                             <button type="submit" class="btn btn-primary">Редактировать</button>
                         </form>
                     </div>
