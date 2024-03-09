@@ -17,4 +17,17 @@ class UserService {
             abort(500);
         }
     }
+
+    public function login($data) {
+
+        try {
+            DB::beginTransaction();
+            DB::table('users')->insert(['email' => $data['email'], 'password' => $data['password'], 'role_id' => 1]);
+            DB::commit();
+        } catch (\Exception $exception) {
+            DB::rollBack();
+
+            abort(500);
+        }
+    }
 }

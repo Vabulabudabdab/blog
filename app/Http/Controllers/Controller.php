@@ -41,4 +41,8 @@ class Controller extends BaseController
     public function error_404() {
         return view('404');
     }
+
+    public function login() {
+        return view('auth.login');
+    }
 }

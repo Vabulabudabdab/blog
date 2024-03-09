@@ -29,7 +29,13 @@ Route::get('/blog', [App\Http\Controllers\Controller::class, 'blog']);
 
 Route::get('/about', [App\Http\Controllers\Controller::class, 'about']);
 
-Route::group(['prefix' => 'admin'], function() {
+Route::get('/login', [App\Http\Controllers\Controller::class, 'login'])->name('auth.login');
+
+Route::post('/', [App\Http\Controllers\User\Users\LoginController::class, 'login'])->name('user.register');
+
+Route::get('/logout', [App\Http\Controllers\User\Users\LoginController::class, 'logout'])->name('logout');
+
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function() {
 
     Route::get('/', [App\Http\Controllers\Admin\Main\IndexController::class, 'admin_panel']);
 
