@@ -7,10 +7,12 @@ use App\Models\User;
 use App\Mail\User\Mail;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 class RegisterController {
 
     public function registerUser(RegisterRequest $registerRequest) {
+
         $data = $registerRequest->validated();
 
         $email = $registerRequest->post('email');
@@ -20,16 +22,13 @@ class RegisterController {
         Hash::make($data['password_confirmation']);
 
         $data['password'] = Hash::make($password);
-        event(new Registered($data['email']));
-        User::firstOrCreate(['email' => $data['email'], 'role_id' => 2], $data);
 
+        $user = User::firstOrCreate(['email' => $data['email'], 'role_id' => 2], $data);
 
+        event(new Registered($user));
 
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            return redirect('/home');
-        }
+        Auth::login($user);
 
-        return view('/home');
+        return redirect('/register');
     }
-
 }
