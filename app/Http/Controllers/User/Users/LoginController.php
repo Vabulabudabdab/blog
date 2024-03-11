@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\User\Users;
 
 use App\Http\Requests\user\login\StoreRequest;
-use App\Models\User;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LoginController {
+
 
     public function login(StoreRequest $storeRequest) {
         $data = $storeRequest->validated();
@@ -19,7 +18,7 @@ class LoginController {
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
             return redirect('/');
         }
-        return view('/');
+        return view('auth.login');
     }
 
     public function logout() {

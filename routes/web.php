@@ -1,5 +1,7 @@
 <?php
 
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,13 +31,17 @@ Route::get('/blog', [App\Http\Controllers\Controller::class, 'blog']);
 
 Route::get('/about', [App\Http\Controllers\Controller::class, 'about']);
 
-Route::get('/login', [App\Http\Controllers\Controller::class, 'login'])->name('auth.login');
+Route::get('/register', [App\Http\Controllers\Controller::class, 'registerUser'])->name('auth.register');
 
-Route::post('/', [App\Http\Controllers\User\Users\LoginController::class, 'login'])->name('user.register');
+Route::get('/login', [App\Http\Controllers\Controller::class, 'loginUser'])->name('login');
+
+Route::post('/reg', [App\Http\Controllers\User\Users\RegisterController::class, 'registerUser'])->name('registerUser');
+
+Route::post('/', [App\Http\Controllers\User\Users\LoginController::class, 'login'])->name('loginUser');
 
 Route::get('/logout', [App\Http\Controllers\User\Users\LoginController::class, 'logout'])->name('logout');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function() {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin', 'verified']], function() {
 
     Route::get('/', [App\Http\Controllers\Admin\Main\IndexController::class, 'admin_panel']);
 
@@ -84,3 +90,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin']], function()
 
     });
 });
+
+Auth::routes(['verify' => true]);

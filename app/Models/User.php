@@ -2,23 +2,20 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Notifications\Notifiable;
 
-class User extends Authenticatable {
-    use HasFactory, SoftDeletes;
+class User extends Authenticatable implements MustVerifyEmail {
 
-    const ROLE_ADMIN = 1;
-    const ROLE_READER = 2;
-
-    public static function getRoles() {
-        return Role::all();
-    }
+    use SoftDeletes, Notifiable;
 
     protected $table = 'users';
-    protected $fillable = ['name', 'email', 'password', 'role_id'];
+    protected $fillable = ['name', 'email', 'password', 'role_id', 'remember_token'];
 
 }
+
+
+

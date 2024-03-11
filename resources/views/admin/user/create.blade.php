@@ -46,13 +46,6 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Пароль</label>
-                                <input type="password" class="form-control" placeholder="Password" name="password" value="{{old('password')}}">
-                                @error('password')
-                                <div class="text-danger">{{$message}}</div>
-                                @enderror
-                            </div>
-                            <div class="form-group">
                                 <label>Права пользователя</label>
                                 <select class="select2" name="roles"  data-placeholder="Выберите роли" style="width: 100%;">
                                     @foreach($roles as $role)

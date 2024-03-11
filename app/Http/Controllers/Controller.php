@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\user\register\RegisterRequest;
+use http\Env\Request;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
@@ -42,7 +44,12 @@ class Controller extends BaseController
         return view('404');
     }
 
-    public function login() {
+    public function loginUser() {
         return view('auth.login');
     }
+
+    public function registerUser() {
+        return view('auth.register');
+    }
+
 }
