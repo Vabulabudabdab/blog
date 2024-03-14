@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Notifications\SendVerifyWithQueueNotification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,6 +16,10 @@ class User extends Authenticatable implements MustVerifyEmail {
     protected $table = 'users';
     protected $fillable = ['name', 'email', 'password', 'role_id', 'remember_token'];
 
+
+    public function sendEmailVerificationNotification() {
+        $this->notify(new SendVerifyWithQueueNotification());
+    }
 }
 
 
