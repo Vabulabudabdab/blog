@@ -44,7 +44,6 @@
                                         <td>{{$post->id}}</td>
                                         <td>{{$post->title}}</td>
                                         <td class="text-center"><a href="{{route('admin.post.show', $post->id)}}"><i class="far fa-eye"></i></a></td>
-                                        <td class="text-center"><a href="{{route('admin.post.edit', $post->id)}}" class="text-success"><i class="fas fa-pencil-alt"></i></a></td>
                                         <td class="text-center">
                                             <form action="{{route('personal.liked.delete', $post->id)}}" method="post">
                                                 {{csrf_field()}}

@@ -43,6 +43,7 @@ Route::post('/', [App\Http\Controllers\User\Users\LoginController::class, 'login
 
 Route::get('/logout', [App\Http\Controllers\User\Users\LoginController::class, 'logout'])->name('logout');
 
+//lc
 Route::group(['prefix' => 'personal', 'middleware' => ['auth', 'verified']], function() {
 
     Route::get('/', [App\Http\Controllers\Personal\Main\IndexController::class, 'personalArea'])->name('personal.main.page');
@@ -54,10 +55,14 @@ Route::group(['prefix' => 'personal', 'middleware' => ['auth', 'verified']], fun
 
     Route::group(['prefix' => 'comments'], function() {
         Route::get('/', [App\Http\Controllers\Personal\Comments\CommentsController::class, 'comments'])->name('personal.comments.index');
+        Route::get('/{comment}/edit', [App\Http\Controllers\Personal\Comments\EditController::class, 'editComment'])->name('personal.comments.edit');
+        Route::patch('/{comment}', [App\Http\Controllers\Personal\Comments\UpdateController::class, 'updateComment'])->name('personal.comments.update');
+        Route::delete('/{comment}', [App\Http\Controllers\Personal\Comments\DeleteController::class, 'deleteComment'])->name('personal.comments.delete');
     });
 
 });
 
+//admin
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin', 'verified']], function() {
 
     Route::get('/', [App\Http\Controllers\Admin\Main\IndexController::class, 'admin_panel'])->name('admin.main.page');

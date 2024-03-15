@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Personal\Comments;
 class CommentsController {
 
    public function comments() {
-
-       return view('personal.comments.index');
+       $comments = auth()->user()->comments;
+       return view('personal.comments.index', compact('comments'));
    }
 
 }
