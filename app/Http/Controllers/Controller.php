@@ -52,4 +52,8 @@ class Controller extends BaseController
         return view('auth.register');
     }
 
+    public function verification() {
+        return view('auth.verify');
+    }
+
 }

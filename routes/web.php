@@ -35,15 +35,32 @@ Route::get('/register', [App\Http\Controllers\Controller::class, 'registerUser']
 
 Route::get('/login', [App\Http\Controllers\Controller::class, 'loginUser'])->name('login');
 
+Route::get('/verify', [App\Http\Controllers\Controller::class, 'verification'])->name('verify');
+
 Route::post('/reg', [App\Http\Controllers\User\Users\RegisterController::class, 'registerUser'])->name('registerUser');
 
 Route::post('/', [App\Http\Controllers\User\Users\LoginController::class, 'login'])->name('loginUser');
 
 Route::get('/logout', [App\Http\Controllers\User\Users\LoginController::class, 'logout'])->name('logout');
 
+Route::group(['prefix' => 'personal', 'middleware' => ['auth', 'verified']], function() {
+
+    Route::get('/', [App\Http\Controllers\Personal\Main\IndexController::class, 'personalArea'])->name('personal.main.page');
+
+    Route::group(['prefix' => 'liked'], function() {
+        Route::get('/', [App\Http\Controllers\Personal\Liked\LikedController::class, 'liked'])->name('personal.liked.index');
+        Route::delete('/{post}', [App\Http\Controllers\Personal\Liked\DeleteController::class, 'delete'])->name('personal.liked.delete');
+    });
+
+    Route::group(['prefix' => 'comments'], function() {
+        Route::get('/', [App\Http\Controllers\Personal\Comments\CommentsController::class, 'comments'])->name('personal.comments.index');
+    });
+
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','admin', 'verified']], function() {
 
-    Route::get('/', [App\Http\Controllers\Admin\Main\IndexController::class, 'admin_panel']);
+    Route::get('/', [App\Http\Controllers\Admin\Main\IndexController::class, 'admin_panel'])->name('admin.main.page');
 
     Route::group(['prefix' => 'posts'], function() {
         Route::get('/', [App\Http\Controllers\Admin\Post\IndexController::class, 'posts'])->name('admin.post.index');
