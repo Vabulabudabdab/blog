@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers\Main;
 
-class IndexController {
+use App\Models\Post;
 
+class IndexController {
+    public function home_index() {
+        return redirect()->route('post.index');
+    }
 }

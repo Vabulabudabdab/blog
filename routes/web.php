@@ -15,21 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Controller::class, 'index']);
 
-Route::get('/home', [App\Http\Controllers\Controller::class, 'home']);
+Route::group(['namespace' => 'Main'], function() {
+    Route::get('/', [App\Http\Controllers\Main\IndexController::class, 'home_index'])->name('main.index');
+});
 
-Route::get('/contact', [App\Http\Controllers\Controller::class, 'contact']);
-
-Route::get('/coming_soon', [App\Http\Controllers\Controller::class, 'coming_soon']);
-
-Route::get('/404', [App\Http\Controllers\Controller::class, 'error_404']);
-
-Route::get('/blog_single', [App\Http\Controllers\Controller::class, 'blog_single']);
-
-Route::get('/blog', [App\Http\Controllers\Controller::class, 'blog']);
-
-Route::get('/about', [App\Http\Controllers\Controller::class, 'about']);
+Route::group(['prefix' => 'posts'], function() {
+    Route::get('/home', [App\Http\Controllers\Post\IndexController::class, 'home_index'])->name('post.index');
+    Route::get('/{post}', [App\Http\Controllers\Post\ShowController::class, 'show_index'])->name('post.show');
+});
 
 Route::get('/register', [App\Http\Controllers\Controller::class, 'registerUser'])->name('auth.register');
 
