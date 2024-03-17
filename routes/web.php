@@ -20,9 +20,17 @@ Route::group(['namespace' => 'Main'], function() {
     Route::get('/', [App\Http\Controllers\Main\IndexController::class, 'home_index'])->name('main.index');
 });
 
-Route::group(['prefix' => 'posts'], function() {
+
+Route::group(['namespace' => 'Post','prefix' => 'posts'], function() {
     Route::get('/home', [App\Http\Controllers\Post\IndexController::class, 'home_index'])->name('post.index');
     Route::get('/{post}', [App\Http\Controllers\Post\ShowController::class, 'show_index'])->name('post.show');
+
+    Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], function() {
+        Route::post('/', [App\Http\Controllers\Post\Comments\StoreController::class, '__invoke'])->name('post.comment.store');
+    });
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function() {
+        Route::post('/', [App\Http\Controllers\Post\Like\LikedController::class, 'liked'])->name('post.like.store');
+    });
 });
 
 Route::get('/register', [App\Http\Controllers\Controller::class, 'registerUser'])->name('auth.register');

@@ -26,6 +26,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('main.index')}}">Блог</a>
                     </li>
+
+                    @if(auth()->user())
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('logout')}}">Выйти</a>
+                    </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('personal.main.page')}}">Войти</a>
+                        </li>
+                    @endif
                 </ul>
             </div>
         </nav>
@@ -42,7 +52,23 @@
                     <div class="blog-post-thumbnail-wrapper">
                         <img src="{{'../storage/'.$post->preview_image}}" alt="blog post">
                     </div>
-                    <p class="blog-post-category">{{$post->category->title}}</p>
+                    <div class="d-flex justify-content-between">
+                        <p class="blog-post-category">{{$post->category->title}}</p>
+                        @auth()
+                        <form action="{{route('post.like.store', $post->id)}}" method="post">
+                            {{csrf_field()}}
+                            <button type="submit" class="border-0 bg-transparent">
+                                <i class="fa{{auth()->user()->likedPosts->contains($post->id) ? 's' : 'r'}} fa-heart"></i> {{$post->liked_users_count}}
+                            </button>
+                        </form>
+                        @endauth()
+                        @guest()
+                            <div>
+                                <i class="far fa-heart"></i>
+                                <span> {{$post->liked_users_count}}</span>
+                            </div>
+                        @endguest
+                    </div>
                     <a href="{{route('post.show', $post->id)}}" class="blog-post-permalink">
                         <h6 class="blog-post-title">{{$post->title}}</h6>
                     </a>

@@ -1,74 +1,36 @@
-@extends('layouts.head')
-@section('content')
-    <main class="blog-post">
-        <div class="container">
-            <h1 class="edica-page-title" data-aos="fade-up">{{$post->title}}</h1>
-            <p class="edica-blog-post-meta" data-aos="fade-up" data-aos-delay="200">{{$date->translatedFormat('F')}} - {{$date->day}} - {{$date->year}} - {{$date->format('H:i')}} | {{$post->comments->count()}}  Комментариев </p>
-            <section class="blog-post-featured-img" data-aos="fade-up" data-aos-delay="300">
-                <img src="{{asset('storage/' . $post->main_image)}}" alt="featured image" class="w-100">
-            </section>
-            <section class="post-content">
-                <div class="row">
-                    <div class="col-lg-9 mx-auto" data-aos="fade-up">
-                        {!! $post->content !!}
-                    </div>
+<section class="featured-posts-section">
+    <div class="row">
+        @foreach($posts as $post)
+            <div class="col-md-4 fetured-post blog-post" data-aos="fade-up">
+                <div class="blog-post-thumbnail-wrapper">
+                    <img src="{{'../storage/'.$post->preview_image}}" alt="blog post">
                 </div>
-            </section>
-            <div class="row">
-                <div class="col-lg-9 mx-auto">
-                    <section class="related-posts">
-                        <h2 class="section-title mb-4" data-aos="fade-up">Схожие посты</h2>
-                        <div class="row">
-                            @foreach($relatedPosts as $post)
-                            <div class="col-md-4" data-aos="fade-right" data-aos-delay="100">
-                                <img src="{{'../storage/'.$post->preview_image}}" alt="related post" class="post-thumbnail">
-                                <p class="post-category">{!! $post->title !!}</p>
-                                <a href="{{route('post.show', $post->id)}}"><h5 class="post-title">{!! $post->content !!}</h5></a>
-                            </div>
-                            @endforeach
-                        </div>
-                    </section>
-                    <section class="comment-section">
-                        <h2 class="section-title mb-5" data-aos="fade-up">Leave a Reply</h2>
-                        <form action="/" method="post">
-                            <div class="row">
-                                <div class="form-group col-12" data-aos="fade-up">
-                                    <label for="comment" class="sr-only">Comment</label>
-                                    <textarea name="comment" id="comment" class="form-control" placeholder="Comment" rows="10">Comment</textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group col-md-4" data-aos="fade-right">
-                                    <label for="name" class="sr-only">Name</label>
-                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name*">
-                                </div>
-                                <div class="form-group col-md-4" data-aos="fade-up">
-                                    <label for="email" class="sr-only">Email</label>
-                                    <input type="email" name="email" id="email" class="form-control" placeholder="Email*" required>
-                                </div>
-                                <div class="form-group col-md-4" data-aos="fade-left">
-                                    <label for="website" class="sr-only">Website</label>
-                                    <input type="url" name="website" id="website" class="form-control" placeholder="Website*">
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12" data-aos="fade-up">
-                                    <input type="submit" value="Send Message" class="btn btn-warning">
-                                </div>
-                            </div>
+                <div class="d-flex justify-content-between">
+                    <p class="blog-post-category">{{$post->category->title}}</p>
+                    @auth()
+                        <form action="{{route('post.like.store', $post->id)}}" method="post">
+                            {{csrf_field()}}
+                            <button type="submit" class="border-0 bg-transparent">
+                                <i class="fa{{auth()->user()->likedPosts->contains($post->id) ? 's' : 'r'}} fa-heart"></i> {{$post->liked_users_count}}
+                            </button>
                         </form>
-                    </section>
+                    @endauth()
+                    @guest()
+                        <div>
+                            <i class="far fa-heart"></i>
+                            <span> {{$post->liked_users_count}}</span>
+                        </div>
+                    @endguest
                 </div>
+                <a href="{{route('post.show', $post->id)}}" class="blog-post-permalink">
+                    <h6 class="blog-post-title">{{$post->title}}</h6>
+                </a>
             </div>
+        @endforeach
+    </div>
+    <div class="row">
+        <div class="mx-auto">
+            {{$posts->links()}}
         </div>
-    </main>
-    <script src="/assets/vendors/popper.js/popper.min.js"></script>
-    <script src="/assets/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/assets/vendors/aos/aos.js"></script>
-    <script src="/assets/js/main.js"></script>
-    <script>
-        AOS.init({
-            duration: 2000
-        });
-    </script>
-@endsection
+    </div>
+</section>
