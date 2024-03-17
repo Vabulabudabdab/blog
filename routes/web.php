@@ -20,7 +20,6 @@ Route::group(['namespace' => 'Main'], function() {
     Route::get('/', [App\Http\Controllers\Main\IndexController::class, 'home_index'])->name('main.index');
 });
 
-
 Route::group(['namespace' => 'Post','prefix' => 'posts'], function() {
     Route::get('/home', [App\Http\Controllers\Post\IndexController::class, 'home_index'])->name('post.index');
     Route::get('/{post}', [App\Http\Controllers\Post\ShowController::class, 'show_index'])->name('post.show');
@@ -30,6 +29,14 @@ Route::group(['namespace' => 'Post','prefix' => 'posts'], function() {
     });
     Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function() {
         Route::post('/', [App\Http\Controllers\Post\Like\LikedController::class, 'liked'])->name('post.like.store');
+    });
+});
+
+Route::group(['namespace' => 'Post', 'prefix' => 'categories'], function() {
+    Route::get('/', [App\Http\Controllers\Category\Post\IndexController::class, '__invoke'])->name('category.index');
+
+    Route::group(['namespace' => 'Post', 'prefix' => '/{category}/posts'], function() {
+        Route::get('/', [App\Http\Controllers\Category\Post\ShowController::class, '__invoke'])->name('category.show');
     });
 });
 

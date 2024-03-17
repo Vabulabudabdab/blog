@@ -26,7 +26,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('main.index')}}">Блог</a>
                     </li>
-
                     @if(auth()->user())
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('logout')}}">Выйти</a>

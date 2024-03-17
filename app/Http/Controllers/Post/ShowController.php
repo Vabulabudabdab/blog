@@ -9,6 +9,7 @@ class ShowController {
     public function show_index(Post $post) {
 
         $date = Carbon::parse($post->created_at);
+
         $relatedPosts = Post::where('category_id', $post->category_id)
             ->where('id', '!=', $post->id)
             ->get()
